@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Generator – موقعك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet" />
+  <!-- QR Code library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>QR بصمتك</h1>
+      <p class="sub">حوّل أي نص أو رابط إلى QR Code احترافي — فوري، مجاني، بلا إعلانات.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card input-card">
+      <label for="qr-input">أدخل النص أو الرابط</label>
+      <textarea id="qr-input" rows="3" placeholder="https://example.com أو أي نص…"></textarea>
+
+      <div class="options-row">
+        <div class="opt-group">
+          <label for="fg-color">لون QR</label>
+          <input type="color" id="fg-color" value="#0a0a0a" />
+        </div>
+        <div class="opt-group">
+          <label for="bg-color">لون الخلفية</label>
+          <input type="color" id="bg-color" value="#ffffff" />
+        </div>
+        <div class="opt-group">
+          <label for="qr-size">الحجم (px)</label>
+          <input type="number" id="qr-size" value="400" min="200" max="1000" step="50" />
+        </div>
+      </div>
+
+      <button id="generate-btn" class="btn-primary">⚡ أنشئ QR</button>
+    </section>
+
+    <section class="card result-card" id="result-card" style="display:none">
+      <div class="qr-wrapper">
+        <canvas id="qr-canvas"></canvas>
+      </div>
+      <div class="result-actions">
+        <button id="download-btn" class="btn-download">⬇ تحميل PNG</button>
+        <button id="copy-btn" class="btn-copy">📋 نسخ الصورة</button>
+      </div>
+      <p class="watermark-note">يحتوي الـ QR على علامة مائية دقيقة تدل على مصدره.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Powered with ❤️ by <a href="mailto:buildurabusiness@gmail.com">buildurabusiness@gmail.com</a></p>
+  </footer>
+
+  <!-- Hidden div for qrcodejs rendering -->
+  <div id="qr-hidden" style="display:none"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

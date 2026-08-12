@@ -1,0 +1,243 @@
+/* ─── Reset & Base ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:     #0d0d0d;
+  --paper:   #f7f5f0;
+  --accent:  #1a56db;
+  --accent2: #0e3fa8;
+  --muted:   #6b7280;
+  --border:  #e2ddd6;
+  --card-bg: #ffffff;
+  --radius:  14px;
+  --shadow:  0 4px 24px rgba(0,0,0,.08);
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Hero ──────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #0d1b4b 0%, #1a56db 60%, #3b82f6 100%);
+  padding: 60px 24px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.5px;
+  line-height: 1.15;
+}
+
+.hero .sub {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.75);
+  max-width: 520px;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+/* ─── Layout ─────────────────────────────────────── */
+.container {
+  flex: 1;
+  max-width: 640px;
+  width: 100%;
+  margin: -28px auto 40px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── Card ───────────────────────────────────────── */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 28px 24px;
+}
+
+/* ─── Input Card ─────────────────────────────────── */
+.input-card label {
+  display: block;
+  font-weight: 600;
+  font-size: .95rem;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.input-card textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color .2s;
+  color: var(--ink);
+  background: #fafaf8;
+  direction: ltr;
+}
+.input-card textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #fff;
+}
+
+.options-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.opt-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 100px;
+}
+.opt-group label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+.opt-group input[type="color"] {
+  width: 100%;
+  height: 42px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+  cursor: pointer;
+  background: #fff;
+}
+.opt-group input[type="number"] {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: 'Cairo', sans-serif;
+  font-size: .95rem;
+  color: var(--ink);
+  background: #fafaf8;
+}
+.opt-group input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ─── Button Primary ─────────────────────────────── */
+.btn-primary {
+  display: block;
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+  letter-spacing: .3px;
+}
+.btn-primary:hover { opacity: .92; transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+/* ─── Result Card ────────────────────────────────── */
+.result-card { text-align: center; }
+
+.qr-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+#qr-canvas {
+  display: block;
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-download, .btn-copy {
+  padding: 12px 26px;
+  border-radius: 9px;
+  border: none;
+  font-family: 'Cairo', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.btn-download {
+  background: #0d1b4b;
+  color: #fff;
+}
+.btn-download:hover { background: #162264; }
+
+.btn-copy {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--border);
+}
+.btn-copy:hover { background: #eeeae2; }
+
+.watermark-note {
+  margin-top: 16px;
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+/* ─── Footer ─────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: .82rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .card { padding: 20px 16px; }
+  .options-row { gap: 10px; }
+}
