@@ -69,7 +69,7 @@ rammaz/
 
 ```bash
 # استنسخ المستودع
-git clone https://github.com/username/rammaz.git
+git clone https://github.com/jawadbinmahmoud/rammaz.git
 
 # افتح الملف مباشرة في المتصفح
 open index.html
